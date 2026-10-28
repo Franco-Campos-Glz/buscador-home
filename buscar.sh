@@ -10,4 +10,14 @@ if [ ! -d "$carpeta" ]; then
 fi
 palabra="home"
 echo "Buscando \"$palabra\" en: $carpeta"
-grep -rl "$palabra" "$carpeta" 2>/dev/null
+resultados=$(grep -rl "$palabra" "$carpeta" 2>/dev/null)
+if [ -z "$resultados" ]; then
+  echo "No se encontró \"$palabra\" en ningún archivo."
+  exit 3
+fi
+echo "$resultados"
+total=$(echo "$resultados" | wc -l | tr -d ' ')
+echo "Total de archivos encontrados: $total"
+echo "$resultados" > resultados.txt
+echo "Resultados guardados en resultados.txt"
+exit 0
