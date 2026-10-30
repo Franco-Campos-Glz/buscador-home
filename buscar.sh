@@ -26,3 +26,4 @@ echo "Total de archivos encontrados: $total"
 echo "$resultados" > resultados.txt
 echo "Resultados guardados en resultados.txt"
 exit 0
+# Colaboración de Alejandro
